@@ -22,15 +22,14 @@ const start = () => {
     gameOver.style.display = 'none'
 
     document.removeEventListener('keydown', start)
+    document.removeEventListener('touchstart', start)
 
     pipe.classList.add('pipe-move')
     clouds.classList.add('clouds-move')
 
     const loop = setInterval(() => {
         const pipePosition = pipe.offsetLeft
-        const cloudsPosition = clouds.offsetLeft
-
-        
+        const cloudsPosition = clouds.offsetLeft        
 
         const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '')
 
@@ -59,25 +58,29 @@ const start = () => {
 
     }, 10)
 
-    let jumpInProgress = false;
+    let jumpInProgress = false
     const jump = () => {
         if (!jumpInProgress) {
-            jumpInProgress = true;
-            mario.classList.add('jump');
+            jumpInProgress = true
+            mario.classList.add('jump')
     
             setTimeout(() => {
-                mario.classList.remove('jump');
-                jumpInProgress = false;
-            }, 500);
+                mario.classList.remove('jump')
+                jumpInProgress = false
+            }, 500)
         }
     }
 
     document.addEventListener('keydown', jump)
+    document.addEventListener('touchstart', jump)
 }
 
-document.addEventListener('keydown', () => {
+const handleStart = () => {
     if (!gameStarted) {
-        gameStarted = true;
+        gameStarted = true
         start()
     }
-})
+}
+
+document.addEventListener('touchstart', handleStart)
+document.addEventListener('keydown', handleStart)
