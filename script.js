@@ -22,7 +22,7 @@ document.addEventListener('keydown', jump)
 document.addEventListener('touchstart', jump)
 const start = () => {
 
-    mario.src = 'images/mario.gif'
+    mario.src = 'mario.gif'
     mario.style.bottom = `0px`
     mario.style.width = '150px'
     pipe.style.rigth = `-80px`
@@ -52,7 +52,7 @@ const start = () => {
             pipe.classList.remove('pipe-move')
             clouds.classList.remove('clouds-move')
 
-            mario.src = 'images/game-over.png'
+            mario.src = 'game-over.png'
             mario.style.width = '75px'
             mario.style.left = '50px'
 
