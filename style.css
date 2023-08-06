@@ -17,6 +17,8 @@
     padding: 15px;
     border-radius: 5px;
     animation: start-animation 1.5s infinite;
+    z-index: 999; 
+
     /* display: none;                                        */
 }
 .game-over {
@@ -29,7 +31,7 @@
     font-size: 30px;
     text-align: center; 
     display: none;  
-    z-index: 2; 
+    z-index: 999; 
 }
 .game-board{
     width: 100%;
@@ -60,6 +62,7 @@
     width: 150px;
     position: absolute;
     bottom: 0;
+    z-index: 2; 
 }
 .clouds-move {
     animation: clouds-animation 10s infinite linear;
