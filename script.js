@@ -3,6 +3,7 @@ const pipe = document.querySelector('.pipe')
 const clouds = document.querySelector('.clouds')
 const gameOver = document.querySelector('.game-over')
 const startText = document.querySelector('.start')
+const score = document.querySelector('#scoreNumber')
 
 let gameStarted = false
 let jumpProgress = false
@@ -22,10 +23,12 @@ document.addEventListener('keydown', jump)
 document.addEventListener('touchstart', jump)
 const start = () => {
 
+    score.innerHTML = 0
+
     mario.src = 'mario.gif'
-    mario.style.bottom = `0px`
-    mario.style.width = '150px'
-    pipe.style.rigth = `-80px`
+    mario.style.bottom = `0`
+    mario.style.width = '7rem'
+    pipe.style.rigth = `-4rem`
 
     mario.style.left = 'initial'
     pipe.style.left = `initial`
@@ -37,12 +40,17 @@ const start = () => {
     pipe.classList.add('pipe-move')
     clouds.classList.add('clouds-move')
 
+    let scoreNumber = 0
     const loop = setInterval(() => {
+        scoreNumber += 10
+
+        if(scoreNumber % 1000 == 0) score.innerHTML = scoreNumber/1000
+
         const pipePosition = pipe.offsetLeft
         const cloudsPosition = clouds.offsetLeft
         const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '')
-
-        if (pipePosition <= 125 && pipePosition > 0 && marioPosition < 60) {
+        
+        if (pipePosition <= 85 && pipePosition > 0 && marioPosition < 43) {
             clouds.style.left = `${cloudsPosition}px`
 
             pipe.style.left = `${pipePosition}px`
@@ -53,8 +61,8 @@ const start = () => {
             clouds.classList.remove('clouds-move')
 
             mario.src = 'game-over.png'
-            mario.style.width = '75px'
-            mario.style.left = '50px'
+            mario.style.width = '3.5rem'
+            mario.style.left = `32px`
 
             gameOver.style.display = 'block'            
             startText.style.display = 'block'
@@ -64,6 +72,7 @@ const start = () => {
             clearInterval(loop)
         }
 
+        
     }, 10)
 
 }
