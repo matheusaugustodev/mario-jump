@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 14px;
 }
 .start {
     position: absolute;
@@ -39,26 +40,39 @@
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    /* background-color: #5c94fc; */
     background: linear-gradient(#5c94fc, #ffffff);
+}
+.score {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-family: 'LVDC Game Over 2', sans-serif;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 2;
 }
 .clouds {
     z-index: 1;
-    width: 500px;
+    /* height: 30%; */
+    right: 0;
+    width: 15rem;
     position: absolute;
 }
 .pipe {
-    width: 60px;
-    height: 60px;
+    width: 3rem;
+    height: 3rem;
     position: absolute;
     bottom: 0;
-    left: 300px;
+    left: 40%;
+    /* left: 85px; */
+    z-index: 2;
 }
 .pipe-move {
     animation: pipe-animation 1.5s infinite linear;
 }
 .mario {
-    width: 150px;
+    width: 7rem;
     position: absolute;
     bottom: 0;
     z-index: 2;
@@ -73,7 +87,7 @@
 
 @keyframes pipe-animation {
     from {
-        right: -120px;
+        right: -6rem;
     }
     to {
         right: 100%;
@@ -85,13 +99,13 @@
         bottom: 0;
     }
     50% {
-        bottom: 180px;
+        bottom: 8rem;
     }
 }
 
 @keyframes clouds-animation {
     from {
-        right: -900px;
+        right: -15rem;
     }
     to {
         right: 100%;
