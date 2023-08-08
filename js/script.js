@@ -16,12 +16,14 @@ const jump = () => {
         setTimeout(() => {
             mario.classList.remove('jump')
             jumpProgress = false
-        }, 1200)
+        }, 600)
     }
 }
 document.addEventListener('keydown', jump)
 document.addEventListener('touchstart', jump)
 const start = () => {
+
+    let animationDuration = 1500
 
     score.innerHTML = 0
 
@@ -41,12 +43,14 @@ const start = () => {
     clouds.classList.add('clouds-move')
 
     let scoreNumber = 0
+    let pipePosition = pipe.offsetLeft
     const loop = setInterval(() => {
+        animationDuration -= 0.1;
         scoreNumber += 10
-
+        pipePosition = pipe.offsetLeft
+        
         if(scoreNumber % 1000 == 0) score.innerHTML = scoreNumber/1000
 
-        const pipePosition = pipe.offsetLeft
         const cloudsPosition = clouds.offsetLeft
         const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '')
         
@@ -70,10 +74,17 @@ const start = () => {
             gameStarted = false
 
             clearInterval(loop)
+            clearInterval(aceleracao)
         }
 
-        
     }, 10)
+    const aceleracao = setInterval(() => {
+        console.log(animationDuration)
+        pipe.style.animationDuration = animationDuration + 'ms'
+    }, 6000)
+
+    
+
 
 }
 
