@@ -18,7 +18,7 @@
     text-align: center;
     padding: 15px;
     border-radius: 5px;
-    animation: start-animation 1.5s infinite;
+    animation: start-animation 2s infinite;
     z-index: 999;
 }
 .game-over {
@@ -69,7 +69,7 @@
     z-index: 2;
 }
 .pipe-move {
-    animation: pipe-animation 1.5s infinite linear;
+    animation: pipe-animation 1500ms infinite linear;
 }
 .mario {
     width: 7rem;
@@ -81,7 +81,7 @@
     animation: clouds-animation 12s infinite linear;
 }
 .jump {
-    animation: jump 1.2s infinite ease-out;
+    animation: jump 600ms infinite ease-out;
 }
 
 
@@ -119,4 +119,3 @@
         opacity: 100%;
     }
 }
-
