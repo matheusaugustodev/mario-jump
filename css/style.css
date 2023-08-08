@@ -87,7 +87,7 @@
 
 @keyframes pipe-animation {
     from {
-        right: -6rem;
+        right: -3rem;
     }
     to {
         right: 100%;
